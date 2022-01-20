@@ -126,7 +126,7 @@
 
         section.classList.add('is-open');
         content.style.height = 'auto';
-        let height = content.clientHeight + 'px';
+        const height = content.clientHeight + 'px';
         content.style.height = '0px';
         setTimeout(function () {
           content.style.height = height;
