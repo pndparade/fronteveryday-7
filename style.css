@@ -39,6 +39,7 @@ html {
   top: -110px;
   left: 50%;
   transform: translateX(-50%);
+  padding-right: 27px;
 }
 
 .card__title {
@@ -76,6 +77,14 @@ html {
 
 .accordion__toogle:hover {
   color: #F47B56;
+}
+
+.accordion__toogle:focus {
+  outline: none;
+}
+
+.accordion__toogle:focus-visible {
+  outline: 1px dotted #333;
 }
 
 .accordion__content {

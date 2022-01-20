@@ -110,15 +110,15 @@
       });
     }
 
-    function toggleAccordion() {
-      const content = this.nextElementSibling;
-      const section = this.parentNode;
+    function toggleAccordion(elem) {
+      const content = elem.nextElementSibling;
+      const section = elem.parentNode;
 
       if(section.classList.contains('is-open')) {
         closeSection(content);
       } else {
         for(let sibling of section.parentNode.children) {
-          if (sibling !== this && sibling.classList.contains('is-open')) {
+          if (sibling !== elem && sibling.classList.contains('is-open')) {
             let siblingContent = sibling.querySelector('.accordion__content');
             closeSection(siblingContent);
           }
@@ -135,7 +135,15 @@
     }
 
     document.querySelectorAll('.accordion__toogle').forEach((elem) => {
-      elem.addEventListener('click', toggleAccordion);
+      elem.addEventListener('click', (event) => {
+        toggleAccordion(event.target);
+      });
+      elem.addEventListener('keypress', (event) => {
+        const elem = event.target;
+        if(event.keyCode === 13 || event.keyCode === 32) {
+          toggleAccordion(elem);
+        }
+      });
     });
   </script>
 </body>
